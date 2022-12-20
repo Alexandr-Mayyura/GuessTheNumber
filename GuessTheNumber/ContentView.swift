@@ -9,9 +9,9 @@ import SwiftUI
 
 struct ContentView: View {
     
-    @State private var currentValue = Float(10)
+    @State private var currentValue = Float.random(in: 1...100)
     @State private var targetValue = Float.random(in: 1...100)
-    @State private var opasity: CGFloat = 1
+    @State private var alphaValue: CGFloat = 1
     @State private var isAlertShow = false
     
     var body: some View {
@@ -19,31 +19,44 @@ struct ContentView: View {
             Text("Подставьте слайдер, как можно ближе к: \(Int(targetValue))")
             HStack {
                 Text("0")
-                SliderView(value: $currentValue, alpha: $opasity)
+                SliderView(value: $currentValue, alpha: $alphaValue)
+                    .onChange(of: currentValue) { _ in
+                        changeAlpha()
+                    }
                 Text("100")
             }
             Button("Проверь меня!") {
                 isAlertShow.toggle()
             }
-            .alert("Your score\n \(computeScore())", isPresented: $isAlertShow, actions: {} )
-                
+            .alert(
+                "Your score\n \(computeScore())",
+                isPresented: $isAlertShow,
+                actions: {}
+            )
                 .padding()
-            Button("Начать заного", action: {
+            Button("Начать заново", action: {
                 currentValue = Float.random(in: 1...100)
                 targetValue = Float.random(in: 1...100)
             })
         }
         .padding()
+        .onAppear {
+            changeAlpha()
+        }
     }
     
-    
+    private func changeAlpha() {
+        if targetValue >= currentValue {
+            alphaValue = (CGFloat(currentValue - targetValue) + 100) / 100
+        } else {
+            alphaValue = (CGFloat(targetValue - currentValue) + 100) / 100
+        }
+    }
 
     private func computeScore() -> Int {
         let difference = abs(Int(targetValue) - lround(Double(currentValue)))
-        print(currentValue)
         return 100 - difference
     }
-
 }
 
 struct ContentView_Previews: PreviewProvider {

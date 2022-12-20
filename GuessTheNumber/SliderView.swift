@@ -15,37 +15,35 @@ struct SliderView: UIViewRepresentable {
         let slider = UISlider()
         slider.minimumValue = 1
         slider.maximumValue = 100
-        slider.thumbTintColor = UIColor(red: 1, green: 0, blue: 0, alpha: alpha)
         slider.value = value
-        slider.addTarget(context.coordinator, action: #selector(Coordinator.actionSlider), for: .allEvents)
-        
+        slider.addTarget(
+            context.coordinator,
+            action: #selector(Coordinator.changeValue),
+            for: .allEvents
+        )
         return slider
     }
     
     func updateUIView(_ uiView: UISlider, context: Context) {
         uiView.value = value
-        uiView.alpha = alpha
+        uiView.thumbTintColor = UIColor(red: 1, green: 0, blue: 0, alpha: alpha)
     }
     
     func makeCoordinator() -> Coordinator {
-        Coordinator(value: $value, alpha: $alpha)
+        Coordinator(value: $value)
     }
-    
 }
 
 extension SliderView {
     class Coordinator: NSObject {
         @Binding var value: Float
-        @Binding var alpha: CGFloat
         
-        init(value: Binding<Float>, alpha: Binding<CGFloat>) {
+        init(value: Binding<Float>) {
             self._value = value
-            self._alpha = alpha
         }
         
-        @objc func actionSlider(_ sender: UISlider) {
+        @objc func changeValue(_ sender: UISlider) {
             value = sender.value
-            alpha = sender.alpha
         }
     }
 }
