@@ -10,13 +10,13 @@ import SwiftUI
 struct ContentView: View {
     
     @State private var currentValue = Float.random(in: 1...100)
-    @State private var targetValue = Float.random(in: 1...100)
+    @State private var targetValue = Int.random(in: 1...100)
     @State private var opacityValue: Double = 1
     @State private var isAlertShow = false
     
     var body: some View {
         VStack {
-            Text("Подставьте слайдер, как можно ближе к: \(Int(targetValue))")
+            Text("Подставьте слайдер, как можно ближе к: \(targetValue)")
             HStack {
                 Text("0")
                 SliderView(value: $currentValue, opacity: $opacityValue)
@@ -36,7 +36,7 @@ struct ContentView: View {
                 .padding()
             Button("Начать заново") {
                 currentValue = Float.random(in: 1...100)
-                targetValue = Float.random(in: 1...100)
+                targetValue = Int.random(in: 1...100)
             }
         }
         .padding()
@@ -50,7 +50,7 @@ struct ContentView: View {
     }
 
     private func computeScore() -> Int {
-        let difference = abs(Int(targetValue) - lround(Double(currentValue)))
+        let difference = abs(targetValue - lround(Double(currentValue)))
         return 100 - difference
     }
 }
