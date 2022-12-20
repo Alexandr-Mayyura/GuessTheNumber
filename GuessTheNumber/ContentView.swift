@@ -12,7 +12,7 @@ struct ContentView: View {
     @State private var currentValue = Float.random(in: 1...100)
     @State private var targetValue = Int.random(in: 1...100)
     @State private var opacityValue = 1.0
-    @State private var isAlertShow = false
+    @State private var isShowAlert = false
     
     var body: some View {
         VStack {
@@ -26,11 +26,11 @@ struct ContentView: View {
                 Text("100")
             }
             Button("Проверь меня!") {
-                isAlertShow.toggle()
+                isShowAlert.toggle()
             }
             .alert(
                 "Your score\n \(computeScore())",
-                isPresented: $isAlertShow,
+                isPresented: $isShowAlert,
                 actions: {}
             )
                 .padding()
