@@ -34,10 +34,10 @@ struct ContentView: View {
                 actions: {}
             )
                 .padding()
-            Button("Начать заново", action: {
+            Button("Начать заново") {
                 currentValue = Float.random(in: 1...100)
                 targetValue = Float.random(in: 1...100)
-            })
+            }
         }
         .padding()
         .onAppear {
