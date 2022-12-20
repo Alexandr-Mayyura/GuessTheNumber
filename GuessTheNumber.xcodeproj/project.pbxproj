@@ -11,6 +11,7 @@
 		1FD9D53D2950CC0900E1728F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FD9D53C2950CC0900E1728F /* ContentView.swift */; };
 		1FD9D53F2950CC0E00E1728F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1FD9D53E2950CC0E00E1728F /* Assets.xcassets */; };
 		1FD9D5422950CC0E00E1728F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1FD9D5412950CC0E00E1728F /* Preview Assets.xcassets */; };
+		1FD9D5492950D03C00E1728F /* SliderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FD9D5482950D03B00E1728F /* SliderView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +20,7 @@
 		1FD9D53C2950CC0900E1728F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		1FD9D53E2950CC0E00E1728F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1FD9D5412950CC0E00E1728F /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		1FD9D5482950D03B00E1728F /* SliderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SliderView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,6 +55,7 @@
 			children = (
 				1FD9D53A2950CC0900E1728F /* GuessTheNumberApp.swift */,
 				1FD9D53C2950CC0900E1728F /* ContentView.swift */,
+				1FD9D5482950D03B00E1728F /* SliderView.swift */,
 				1FD9D53E2950CC0E00E1728F /* Assets.xcassets */,
 				1FD9D5402950CC0E00E1728F /* Preview Content */,
 			);
@@ -137,6 +140,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1FD9D5492950D03C00E1728F /* SliderView.swift in Sources */,
 				1FD9D53D2950CC0900E1728F /* ContentView.swift in Sources */,
 				1FD9D53B2950CC0900E1728F /* GuessTheNumberApp.swift in Sources */,
 			);
