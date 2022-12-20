@@ -35,8 +35,8 @@ struct ContentView: View {
             )
                 .padding()
             Button("Начать заново") {
-                currentValue = Float.random(in: 1...100)
-                targetValue = Int.random(in: 1...100)
+                currentValue = .random(in: 1...100)
+                targetValue = .random(in: 1...100)
             }
         }
         .padding()
@@ -46,7 +46,7 @@ struct ContentView: View {
     }
     
     private func changeOpacityValue() {
-        opacityValue = CGFloat(computeScore()) / 100
+        opacityValue = Double(computeScore()) / 100
     }
 
     private func computeScore() -> Int {
