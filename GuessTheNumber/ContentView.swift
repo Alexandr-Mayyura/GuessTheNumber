@@ -46,11 +46,7 @@ struct ContentView: View {
     }
     
     private func changeAlpha() {
-        if targetValue >= currentValue {
-            alphaValue = (CGFloat(currentValue - targetValue) + 100) / 100
-        } else {
-            alphaValue = (CGFloat(targetValue - currentValue) + 100) / 100
-        }
+        alphaValue = CGFloat(computeScore()) / 100
     }
 
     private func computeScore() -> Int {
