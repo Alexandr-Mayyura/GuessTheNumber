@@ -11,7 +11,7 @@ struct ContentView: View {
     
     @State private var currentValue = Float.random(in: 1...100)
     @State private var targetValue = Int.random(in: 1...100)
-    @State private var opacityValue: Double = 1
+    @State private var opacityValue = 1.0
     @State private var isAlertShow = false
     
     var body: some View {
