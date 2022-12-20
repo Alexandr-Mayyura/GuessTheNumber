@@ -9,7 +9,7 @@ import SwiftUI
 
 struct SliderView: UIViewRepresentable {
    @Binding var value: Float
-   @Binding var alpha: CGFloat
+   @Binding var opacity: Double
     
     func makeUIView(context: Context) -> UISlider {
         let slider = UISlider()
@@ -26,7 +26,7 @@ struct SliderView: UIViewRepresentable {
     
     func updateUIView(_ uiView: UISlider, context: Context) {
         uiView.value = value
-        uiView.thumbTintColor = UIColor(red: 1, green: 0, blue: 0, alpha: alpha)
+        uiView.thumbTintColor = UIColor(.red.opacity(opacity))
     }
     
     func makeCoordinator() -> Coordinator {

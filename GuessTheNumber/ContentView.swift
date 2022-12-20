@@ -11,7 +11,7 @@ struct ContentView: View {
     
     @State private var currentValue = Float.random(in: 1...100)
     @State private var targetValue = Float.random(in: 1...100)
-    @State private var alphaValue: CGFloat = 1
+    @State private var opacityValue: Double = 1
     @State private var isAlertShow = false
     
     var body: some View {
@@ -19,9 +19,9 @@ struct ContentView: View {
             Text("Подставьте слайдер, как можно ближе к: \(Int(targetValue))")
             HStack {
                 Text("0")
-                SliderView(value: $currentValue, alpha: $alphaValue)
+                SliderView(value: $currentValue, opacity: $opacityValue)
                     .onChange(of: currentValue) { _ in
-                        changeAlpha()
+                        changeOpacityValue()
                     }
                 Text("100")
             }
@@ -41,12 +41,12 @@ struct ContentView: View {
         }
         .padding()
         .onAppear {
-            changeAlpha()
+            changeOpacityValue()
         }
     }
     
-    private func changeAlpha() {
-        alphaValue = CGFloat(computeScore()) / 100
+    private func changeOpacityValue() {
+        opacityValue = CGFloat(computeScore()) / 100
     }
 
     private func computeScore() -> Int {
